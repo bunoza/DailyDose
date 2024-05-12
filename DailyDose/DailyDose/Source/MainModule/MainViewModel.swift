@@ -12,12 +12,12 @@ final class MainViewModel: ObservableObject {
     private let itemRepository = ItemRepository()
     private let itemTransformer = ItemTransformer()
 
-//    var yetToUpdate: Bool? {
-//        if let date = items.first?.date {
-//            return !Calendar.autoupdatingCurrent.isDateInToday(date)
-//        }
-//        return nil
-//    }
+    var dataIsFromToday: Bool {
+        if let date = items.first?.date {
+            return Calendar.autoupdatingCurrent.isDateInToday(date)
+        }
+        return true
+    }
 
     init(
         modelContext: ModelContext,
@@ -29,14 +29,14 @@ final class MainViewModel: ObservableObject {
 
     func onAppear() async {
         await fetchCache()
-        if items.isEmpty {
+        if items.isEmpty || !dataIsFromToday {
             await fetch(in: language)
         }
     }
 
     func refreshData() {
         taskHandler.cancelTasks()
-        taskHandler.handleAction { [weak self] in
+        taskHandler.handleActionOnMainThread { [weak self] in
             guard let self else {
                 return
             }
@@ -44,25 +44,17 @@ final class MainViewModel: ObservableObject {
         }
     }
 
-    // TODO: yet to implement
-//    private func shouldUpdate(manual: Bool) -> Bool {
-//        if let yetToUpdate {
-//            yetToUpdate || manual
-//        } else {
-//            manual
-//        }
-//    }
-
     private func fetch(manual _: Bool = false, in language: SupportedLanguage) async {
         taskHandler.handleActionDetached { [weak self] in
             guard let self else {
                 return
             }
-
+            isLoading = true
+            defer { isLoading = false }
             do {
                 if let receivedItem = try await itemRepository.getItem(in: language) {
                     let transformedItems = try await itemTransformer.getDomainModel(from: receivedItem)
-                    self.items = transformedItems
+                    self.items = transformedItems.sorted(by: { $0.year > $1.year })
                     try modelContext.delete(model: ItemRowModel.self)
                     for item in transformedItems {
                         modelContext.insert(item)
@@ -79,7 +71,8 @@ final class MainViewModel: ObservableObject {
             guard let self else {
                 return
             }
-
+            isLoading = true
+            defer { isLoading = false }
             do {
                 let descriptor = FetchDescriptor<ItemRowModel>(sortBy: [SortDescriptor(\.year)])
                 items = try modelContext.fetch(descriptor)
@@ -88,25 +81,4 @@ final class MainViewModel: ObservableObject {
             }
         }
     }
-
-    // TODO: fix this
-//    func getCategory(for selected: Selected) -> String {
-//        if let births = item.first?.births,
-//           births.contains(where: { $0.text == selected.text }) {
-//            return "births"
-//        }
-//        if let deaths = item.first?.deaths,
-//           deaths.contains(where: { $0.text == selected.text }) {
-//            return "deaths"
-//        }
-//        if let holidays = item.first?.holidays,
-//           holidays.contains(where: { $0.text == selected.text }) {
-//            return "holidays"
-//        }
-//        if let events = item.first?.events,
-//           events.contains(where: { $0.text == selected.text }) {
-//            return "events"
-//        }
-//        return ""
-//    }
 }

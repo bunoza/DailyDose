@@ -1,8 +1,9 @@
-
 import SwiftData
 import SwiftUI
 
 struct MainView: View {
+    @Environment(\.colorScheme) var colorScheme
+
     @StateObject private var viewModel: MainViewModel
 
     init(
@@ -31,22 +32,25 @@ struct MainView: View {
                         }
 
                         ForEach(viewModel.items) { item in
-                            NavigationLink {
-                                ItemViewDetails(item: item)
-                            } label: {
+                            Section {
                                 ItemRowView(viewModel: ItemRowViewModel(item: item))
+                                    .listRowInsets(EdgeInsets())
+                                    .overlay {
+                                        NavigationLink {
+                                            ItemViewDetails(item: item)
+                                        } label: {
+                                            EmptyView()
+                                        }
+                                        .opacity(0)
+                                    }
                             }
                         }
                     }
                     .onChange(of: viewModel.language) { _, _ in
-                        viewModel.isLoading = true
                         viewModel.refreshData()
-                        viewModel.isLoading = false
                     }
                     .refreshable {
-                        viewModel.isLoading = true
                         viewModel.refreshData()
-                        viewModel.isLoading = false
                     }
                 }
             }
@@ -54,9 +58,7 @@ struct MainView: View {
             .navigationBarTitleDisplayMode(.large)
         }
         .task {
-            viewModel.isLoading = true
             await viewModel.onAppear()
-            viewModel.isLoading = false
         }
     }
 }

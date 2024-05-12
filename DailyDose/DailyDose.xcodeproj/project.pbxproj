@@ -105,6 +105,8 @@
 		C54270362BEF9C0900E6D8C5 /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
+				C5EDECC12BEFF36B00E05B21 /* Utils */,
+				C5EDECC22BEFF39300E05B21 /* Repository */,
 				C542702E2BEF98F900E6D8C5 /* ItemRow */,
 				C5DBF8992BB6100B003B5592 /* MainView.swift */,
 				C5E55B6A2BEC0BCE00F56482 /* MainViewModel.swift */,
@@ -208,8 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				C5EDECC32BEFF39D00E05B21 /* DetailsModule */,
-				C5EDECC22BEFF39300E05B21 /* Repository */,
-				C5EDECC12BEFF36B00E05B21 /* Utils */,
 				C54270362BEF9C0900E6D8C5 /* MainModule */,
 				C5E947D82BB61A8800284BFA /* Models */,
 				C5DBF8972BB6100B003B5592 /* DailyDoseApp.swift */,
