@@ -12,6 +12,7 @@
  */
 
 import Foundation
+
 struct ContentURLs: Codable {
     let desktop: Desktop?
     let mobile: Mobile?

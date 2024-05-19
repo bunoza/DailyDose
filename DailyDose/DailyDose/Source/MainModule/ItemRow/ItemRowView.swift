@@ -18,21 +18,26 @@ struct ItemRowView: View {
     }
 
     var body: some View {
-        ZStack {
-            AsyncImage(url: URL(string: viewModel.imageSource ?? "")) { image in
-                image
-                    .resizable()
-                    .scaledToFill()
-            } placeholder: {
-                ProgressView()
-            }
-            .frame(width: UIScreen().bounds.width, height: 200)
+        GeometryReader { _ in
+            RoundedRectangle(cornerRadius: 25)
+                .fill(Color.clear)
+                .overlay {
+                    ZStack {
+                        AsyncImage(url: URL(string: viewModel.imageSource ?? "")) { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        LinearGradient(colors: [gradientColor.opacity(0.8), .clear, .clear], startPoint: .bottom, endPoint: .top)
 
-            LinearGradient(colors: [gradientColor.opacity(0.5), .black.opacity(0), .black.opacity(0)], startPoint: .leading, endPoint: .trailing)
-            LinearGradient(colors: [gradientColor, .black.opacity(0)], startPoint: .bottom, endPoint: .top)
-
-            showOverlayText()
-                .padding()
+                        showOverlayText()
+                            .padding()
+                    }
+                    .clipShape(RoundedRectangle(cornerRadius: 25))
+                }
+                .shadow(radius: 10)
         }
     }
 
@@ -62,7 +67,7 @@ struct ItemRowView: View {
                 if let text = viewModel.text {
                     Text(text)
                         .font(.caption)
-                        .lineLimit(2)
+                        .lineLimit(10)
                 } else {
                     Text("text")
                 }
@@ -74,33 +79,22 @@ struct ItemRowView: View {
 }
 
 #Preview {
-    List {
-        ItemRowView(
-            viewModel: ItemRowViewModel(
-                item: ItemRowModel(
-                    date: Date(),
-                    year: "2025",
-                    normalizedTitle: "normalized title normalized title",
-                    imageSource: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/JewishMarketPostvilleIowa.jpg/320px-JewishMarketPostvilleIowa.jpg",
-                    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                    category: "events"
+    ScrollView {
+        LazyVStack {
+            ForEach(1 ..< 10) { _ in
+                ItemRowView(
+                    viewModel: ItemRowViewModel(
+                        item: ItemRowModel(
+                            date: Date(),
+                            year: "2025",
+                            normalizedTitle: "normalized title normalized title",
+                            imageSource: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/JewishMarketPostvilleIowa.jpg/320px-JewishMarketPostvilleIowa.jpg",
+                            text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                            category: "events"
+                        )
+                    )
                 )
-            )
-        )
-        .listRowInsets(EdgeInsets())
-
-        ItemRowView(
-            viewModel: ItemRowViewModel(
-                item: ItemRowModel(
-                    date: Date(),
-                    year: "2025",
-                    normalizedTitle: "normalized title normalized title",
-                    imageSource: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/JewishMarketPostvilleIowa.jpg/320px-JewishMarketPostvilleIowa.jpg",
-                    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                    category: "events"
-                )
-            )
-        )
-        .listRowInsets(EdgeInsets())
+            }
+        }
     }
 }

@@ -3,6 +3,8 @@ import SwiftData
 
 @Model
 final class ItemRowModel: Sendable {
+    var id: Int { Int(year) ?? -1 }
+
     let date: Date
     let year: String
     let normalizedTitle: String?

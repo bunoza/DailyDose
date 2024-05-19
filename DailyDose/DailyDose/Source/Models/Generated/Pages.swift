@@ -12,6 +12,7 @@
  */
 
 import Foundation
+
 struct Pages: Codable {
     let type: String?
     let title: String?

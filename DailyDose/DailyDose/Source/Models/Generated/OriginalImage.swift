@@ -12,6 +12,7 @@
  */
 
 import Foundation
+
 struct OriginalImage: Codable {
     let source: String?
     let width: Int?

@@ -12,6 +12,7 @@
  */
 
 import Foundation
+
 struct Desktop: Codable {
     let page: String?
     let revisions: String?

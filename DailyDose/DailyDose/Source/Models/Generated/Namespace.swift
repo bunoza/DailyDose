@@ -12,6 +12,7 @@
  */
 
 import Foundation
+
 struct Namespace: Codable {
     let id: Int?
     let text: String?

@@ -12,6 +12,7 @@
  */
 
 import Foundation
+
 struct Mobile: Codable {
     let page: String?
     let revisions: String?

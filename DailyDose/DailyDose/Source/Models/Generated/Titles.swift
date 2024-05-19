@@ -12,6 +12,7 @@
  */
 
 import Foundation
+
 struct Titles: Codable {
     let canonical: String?
     let normalized: String?

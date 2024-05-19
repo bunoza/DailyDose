@@ -2,9 +2,11 @@ import SwiftData
 import SwiftUI
 
 struct MainView: View {
-    @Environment(\.colorScheme) var colorScheme
-
     @StateObject private var viewModel: MainViewModel
+    @State private var showSettingsSheet = false
+    @State private var scrollIndex: Int = 0
+
+    private var augmentation = 0.6
 
     init(
         modelContext: ModelContext
@@ -15,47 +17,46 @@ struct MainView: View {
 
     var body: some View {
         NavigationStack {
-            VStack {
+            HStack {
                 if viewModel.isLoading {
                     ProgressView("Loading")
                 } else {
-                    List {
-                        Section {
-                            Picker(selection: $viewModel.language) {
-                                ForEach(SupportedLanguage.allCases, id: \.rawValue) { language in
-                                    Text(language.description)
-                                        .tag(language)
-                                }
-                            } label: {
-                                Text("Source language:")
-                            }
+                    ScrollableHorizontalList(items: viewModel.items, years: viewModel.years)
+                }
+            }
+            .onChange(of: viewModel.language) { _, _ in
+                showSettingsSheet = false
+                viewModel.refreshData()
+            }
+            .sheet(isPresented: $showSettingsSheet) {
+                Section {
+                    Picker(selection: $viewModel.language) {
+                        ForEach(SupportedLanguage.allCases, id: \.rawValue) { language in
+                            Text(language.description)
+                                .tag(language)
                         }
+                    } label: {
+                        Text("Source language:")
+                    }
+                    .pickerStyle(.automatic)
+                }
+                .presentationDetents([.medium])
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Settings", systemImage: "gear") {
+                        showSettingsSheet = true
+                    }
+                }
 
-                        ForEach(viewModel.items) { item in
-                            Section {
-                                ItemRowView(viewModel: ItemRowViewModel(item: item))
-                                    .listRowInsets(EdgeInsets())
-                                    .overlay {
-                                        NavigationLink {
-                                            ItemViewDetails(item: item)
-                                        } label: {
-                                            EmptyView()
-                                        }
-                                        .opacity(0)
-                                    }
-                            }
-                        }
-                    }
-                    .onChange(of: viewModel.language) { _, _ in
-                        viewModel.refreshData()
-                    }
-                    .refreshable {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Refresh", systemImage: "arrow.clockwise") {
                         viewModel.refreshData()
                     }
                 }
             }
             .navigationTitle("On today's date")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationBarTitleDisplayMode(.inline)
         }
         .task {
             await viewModel.onAppear()

@@ -12,6 +12,7 @@
  */
 
 import Foundation
+
 struct Thumbnail: Codable {
     let source: String?
     let width: Int?

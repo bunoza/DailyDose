@@ -12,6 +12,7 @@
  */
 
 import Foundation
+
 struct Holidays: Codable {
     let text: String?
     let pages: [Pages]?

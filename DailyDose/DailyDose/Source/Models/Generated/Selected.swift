@@ -12,6 +12,7 @@
  */
 
 import Foundation
+
 struct Selected: Codable {
     let text: String?
     let pages: [Pages]?
