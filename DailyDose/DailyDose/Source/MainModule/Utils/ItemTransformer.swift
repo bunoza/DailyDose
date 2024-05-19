@@ -17,7 +17,7 @@ actor ItemTransformer {
                     }
 
                     let normalizedTitle = pages.compactMap { $0.titles?.normalized }.first
-                    let imageSource = pages.compactMap { $0.thumbnail?.source }.first
+                    let imageSource = pages.compactMap { $0.originalimage?.source }.first
 
                     return await ItemRowModel(
                         year: String(item.year ?? 0),

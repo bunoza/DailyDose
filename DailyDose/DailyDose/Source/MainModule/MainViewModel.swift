@@ -32,10 +32,10 @@ final class MainViewModel: ObservableObject {
     }
 
     func onAppear() async {
-        await fetchCache()
-        if items.isEmpty || !dataIsFromToday {
-            await fetch(in: language)
-        }
+//        await fetchCache()
+//        if items.isEmpty || !dataIsFromToday {
+        await fetch(in: language)
+//        }
     }
 
     func getItemID(with year: Int) -> Int? {

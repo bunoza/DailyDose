@@ -18,27 +18,27 @@ struct ItemRowView: View {
     }
 
     var body: some View {
-        GeometryReader { _ in
-            RoundedRectangle(cornerRadius: 25)
-                .fill(Color.clear)
-                .overlay {
-                    ZStack {
-                        AsyncImage(url: URL(string: viewModel.imageSource ?? "")) { image in
-                            image
-                                .resizable()
-                                .scaledToFit()
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        LinearGradient(colors: [gradientColor.opacity(0.8), .clear, .clear], startPoint: .bottom, endPoint: .top)
-
-                        showOverlayText()
-                            .padding()
+        RoundedRectangle(cornerRadius: 25)
+            .fill(Color.clear)
+            .overlay {
+                ZStack {
+                    AsyncImage(url: URL(string: viewModel.imageSource ?? "")) { image in
+                        image
+                            .resizable()
+                            .scaledToFit()
+                    } placeholder: {
+                        ProgressView()
                     }
-                    .clipShape(RoundedRectangle(cornerRadius: 25))
+                    LinearGradient(colors: [gradientColor.opacity(0.8), .clear, .clear], startPoint: .bottom, endPoint: .top)
+
+                    showOverlayText()
+                        .padding()
+                        .padding(.bottom)
+                        .padding(.bottom)
                 }
-                .shadow(radius: 10)
-        }
+                .clipShape(RoundedRectangle(cornerRadius: 25))
+            }
+            .shadow(radius: 10)
     }
 
     private func showOverlayText() -> some View {

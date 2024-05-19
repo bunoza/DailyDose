@@ -17,11 +17,11 @@ struct MainView: View {
 
     var body: some View {
         NavigationStack {
-            HStack {
+            VStack {
                 if viewModel.isLoading {
                     ProgressView("Loading")
                 } else {
-                    ScrollableHorizontalList(items: viewModel.items, years: viewModel.years)
+                    ScrollableVerticalList(items: viewModel.items, years: viewModel.years)
                 }
             }
             .onChange(of: viewModel.language) { _, _ in

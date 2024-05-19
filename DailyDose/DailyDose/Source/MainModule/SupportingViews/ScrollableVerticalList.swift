@@ -28,6 +28,8 @@ struct SectionIndexTitles: View {
 
     let proxy: ScrollViewProxy
     let titles: [String]
+    let impactMed = UIImpactFeedbackGenerator(style: .medium)
+
     @GestureState private var dragLocation: CGPoint = .zero
     @StateObject var indexState = IndexTitleState()
 
@@ -62,7 +64,6 @@ struct SectionIndexTitles: View {
                     indexState.currentTitleIndex = index
                     print(titles[index])
                     DispatchQueue.main.async {
-                        let impactMed = UIImpactFeedbackGenerator(style: .medium)
                         impactMed.impactOccurred()
                         withAnimation {
                             proxy.scrollTo(titles[indexState.currentTitleIndex], anchor: .top)
@@ -74,7 +75,7 @@ struct SectionIndexTitles: View {
     }
 }
 
-struct ScrollableHorizontalList: View {
+struct ScrollableVerticalList: View {
     @Environment(\.colorScheme) var colorScheme
 
     @State var items: [ItemRowModel]
@@ -96,17 +97,22 @@ struct ScrollableHorizontalList: View {
     var body: some View {
         ScrollViewReader { scrollView in
             ZStack {
-                ScrollView(.horizontal) {
-                    HStack(spacing: 0) {
+                ScrollView(.vertical) {
+                    LazyVStack(spacing: 0) {
                         ForEach(items) { item in
-                            ItemRowView(viewModel: ItemRowViewModel(item: item))
-                                .id(item.year)
-                                .containerRelativeFrame(.horizontal, alignment: .center)
+                            NavigationLink {
+                                ItemViewDetails(item: item)
+                            } label: {
+                                ItemRowView(viewModel: ItemRowViewModel(item: item))
+                                    .containerRelativeFrame(.vertical, alignment: .center)
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .id(item.year)
                         }
                     }
                 }
                 .scrollIndicators(.never)
-                .ignoresSafeArea(edges: .horizontal)
+                .ignoresSafeArea(edges: .all)
                 .scrollTargetLayout()
                 .scrollTargetBehavior(.paging)
 
