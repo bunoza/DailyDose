@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C506CF552C08B4AA008CEB94 /* DailyDoseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C506CF542C08B4AA008CEB94 /* DailyDoseTests.swift */; };
+		C506CF5D2C08B8B6008CEB94 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C506CF5C2C08B8B6008CEB94 /* SettingsView.swift */; };
+		C506CF5F2C08B91F008CEB94 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C506CF5E2C08B91F008CEB94 /* AppState.swift */; };
+		C506CF612C08C25E008CEB94 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C506CF602C08C25E008CEB94 /* ErrorView.swift */; };
+		C506CF642C08C35B008CEB94 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C506CF632C08C35B008CEB94 /* LottieView.swift */; };
 		C54270302BEF992A00E6D8C5 /* ItemRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C542702F2BEF992A00E6D8C5 /* ItemRowModel.swift */; };
 		C54270322BEF994200E6D8C5 /* ItemRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54270312BEF994200E6D8C5 /* ItemRowViewModel.swift */; };
 		C54270352BEF9B1600E6D8C5 /* DailyDoseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54270342BEF9B1600E6D8C5 /* DailyDoseError.swift */; };
 		C54270382BEFD59400E6D8C5 /* ItemTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54270372BEFD59400E6D8C5 /* ItemTransformer.swift */; };
+		C5A24B1F2C08C44300F166C7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C5A24B1E2C08C44300F166C7 /* Lottie */; };
+		C5A24B222C08C60E00F166C7 /* error-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = C5A24B212C08C60E00F166C7 /* error-animation.json */; };
 		C5C7A6302BF9F655003E4C83 /* ScrollableVerticalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7A62F2BF9F655003E4C83 /* ScrollableVerticalList.swift */; };
 		C5DBF8982BB6100B003B5592 /* DailyDoseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DBF8972BB6100B003B5592 /* DailyDoseApp.swift */; };
 		C5DBF89A2BB6100B003B5592 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DBF8992BB6100B003B5592 /* MainView.swift */; };
@@ -40,11 +47,28 @@
 		C5E947DC2BB642A900284BFA /* ItemViewDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E947DB2BB642A900284BFA /* ItemViewDetails.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C506CF562C08B4AA008CEB94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5DBF88C2BB6100B003B5592 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C5DBF8932BB6100B003B5592;
+			remoteInfo = DailyDose;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		C506CF522C08B4AA008CEB94 /* DailyDoseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyDoseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C506CF542C08B4AA008CEB94 /* DailyDoseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyDoseTests.swift; sourceTree = "<group>"; };
+		C506CF5C2C08B8B6008CEB94 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C506CF5E2C08B91F008CEB94 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		C506CF602C08C25E008CEB94 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		C506CF632C08C35B008CEB94 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		C542702F2BEF992A00E6D8C5 /* ItemRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowModel.swift; sourceTree = "<group>"; };
 		C54270312BEF994200E6D8C5 /* ItemRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowViewModel.swift; sourceTree = "<group>"; };
 		C54270342BEF9B1600E6D8C5 /* DailyDoseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyDoseError.swift; sourceTree = "<group>"; };
 		C54270372BEFD59400E6D8C5 /* ItemTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTransformer.swift; sourceTree = "<group>"; };
+		C5A24B212C08C60E00F166C7 /* error-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "error-animation.json"; sourceTree = "<group>"; };
 		C5C7A62F2BF9F655003E4C83 /* ScrollableVerticalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableVerticalList.swift; sourceTree = "<group>"; };
 		C5DBF8942BB6100B003B5592 /* DailyDose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyDose.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5DBF8972BB6100B003B5592 /* DailyDoseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyDoseApp.swift; sourceTree = "<group>"; };
@@ -76,16 +100,40 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C5DBF8912BB6100B003B5592 /* Frameworks */ = {
+		C506CF4F2C08B4AA008CEB94 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C5DBF8912BB6100B003B5592 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5A24B1F2C08C44300F166C7 /* Lottie in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C506CF532C08B4AA008CEB94 /* DailyDoseTests */ = {
+			isa = PBXGroup;
+			children = (
+				C506CF542C08B4AA008CEB94 /* DailyDoseTests.swift */,
+			);
+			path = DailyDoseTests;
+			sourceTree = "<group>";
+		};
+		C506CF5B2C08B8A5008CEB94 /* SettingsModule */ = {
+			isa = PBXGroup;
+			children = (
+				C506CF5C2C08B8B6008CEB94 /* SettingsView.swift */,
+			);
+			path = SettingsModule;
+			sourceTree = "<group>";
+		};
 		C542702E2BEF98F900E6D8C5 /* ItemRow */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,10 +165,21 @@
 			path = MainModule;
 			sourceTree = "<group>";
 		};
+		C5A24B202C08C57000F166C7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C5A24B212C08C60E00F166C7 /* error-animation.json */,
+				C5DBF89D2BB6100D003B5592 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C5C7A62E2BF9F636003E4C83 /* SupportingViews */ = {
 			isa = PBXGroup;
 			children = (
 				C5C7A62F2BF9F655003E4C83 /* ScrollableVerticalList.swift */,
+				C506CF602C08C25E008CEB94 /* ErrorView.swift */,
+				C506CF632C08C35B008CEB94 /* LottieView.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -129,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				C5DBF8962BB6100B003B5592 /* DailyDose */,
+				C506CF532C08B4AA008CEB94 /* DailyDoseTests */,
 				C5DBF8952BB6100B003B5592 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -137,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				C5DBF8942BB6100B003B5592 /* DailyDose.app */,
+				C506CF522C08B4AA008CEB94 /* DailyDoseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,8 +205,8 @@
 		C5DBF8962BB6100B003B5592 /* DailyDose */ = {
 			isa = PBXGroup;
 			children = (
+				C5A24B202C08C57000F166C7 /* Resources */,
 				C5EDECC42BEFF3A800E05B21 /* Source */,
-				C5DBF89D2BB6100D003B5592 /* Assets.xcassets */,
 				C5DBF89F2BB6100D003B5592 /* Preview Content */,
 			);
 			path = DailyDose;
@@ -197,6 +258,7 @@
 			children = (
 				C5E55B6C2BEC100000F56482 /* TaskHandler.swift */,
 				C54270372BEFD59400E6D8C5 /* ItemTransformer.swift */,
+				C506CF5E2C08B91F008CEB94 /* AppState.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -220,6 +282,7 @@
 		C5EDECC42BEFF3A800E05B21 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C506CF5B2C08B8A5008CEB94 /* SettingsModule */,
 				C5EDECC32BEFF39D00E05B21 /* DetailsModule */,
 				C54270362BEF9C0900E6D8C5 /* MainModule */,
 				C5E947D82BB61A8800284BFA /* Models */,
@@ -231,6 +294,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C506CF512C08B4AA008CEB94 /* DailyDoseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C506CF5A2C08B4AA008CEB94 /* Build configuration list for PBXNativeTarget "DailyDoseTests" */;
+			buildPhases = (
+				C506CF4E2C08B4AA008CEB94 /* Sources */,
+				C506CF4F2C08B4AA008CEB94 /* Frameworks */,
+				C506CF502C08B4AA008CEB94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C506CF572C08B4AA008CEB94 /* PBXTargetDependency */,
+			);
+			name = DailyDoseTests;
+			productName = DailyDoseTests;
+			productReference = C506CF522C08B4AA008CEB94 /* DailyDoseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C5DBF8932BB6100B003B5592 /* DailyDose */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C5DBF8A42BB6100D003B5592 /* Build configuration list for PBXNativeTarget "DailyDose" */;
@@ -244,6 +325,9 @@
 			dependencies = (
 			);
 			name = DailyDose;
+			packageProductDependencies = (
+				C5A24B1E2C08C44300F166C7 /* Lottie */,
+			);
 			productName = DailyDose;
 			productReference = C5DBF8942BB6100B003B5592 /* DailyDose.app */;
 			productType = "com.apple.product-type.application";
@@ -255,9 +339,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					C506CF512C08B4AA008CEB94 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = C5DBF8932BB6100B003B5592;
+					};
 					C5DBF8932BB6100B003B5592 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
@@ -273,29 +361,47 @@
 			);
 			mainGroup = C5DBF88B2BB6100B003B5592;
 			packageReferences = (
+				C506CF622C08C325008CEB94 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = C5DBF8952BB6100B003B5592 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				C5DBF8932BB6100B003B5592 /* DailyDose */,
+				C506CF512C08B4AA008CEB94 /* DailyDoseTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C506CF502C08B4AA008CEB94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C5DBF8922BB6100B003B5592 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C5DBF8A12BB6100D003B5592 /* Preview Assets.xcassets in Resources */,
 				C5DBF89E2BB6100D003B5592 /* Assets.xcassets in Resources */,
+				C5A24B222C08C60E00F166C7 /* error-animation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C506CF4E2C08B4AA008CEB94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C506CF552C08B4AA008CEB94 /* DailyDoseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C5DBF8902BB6100B003B5592 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -313,10 +419,14 @@
 				C5E947CC2BB61A8400284BFA /* Namespace.swift in Sources */,
 				C5E947CE2BB61A8400284BFA /* Titles.swift in Sources */,
 				C54270322BEF994200E6D8C5 /* ItemRowViewModel.swift in Sources */,
+				C506CF5F2C08B91F008CEB94 /* AppState.swift in Sources */,
 				C54270352BEF9B1600E6D8C5 /* DailyDoseError.swift in Sources */,
+				C506CF612C08C25E008CEB94 /* ErrorView.swift in Sources */,
 				C5E947D02BB61A8400284BFA /* Holidays.swift in Sources */,
+				C506CF5D2C08B8B6008CEB94 /* SettingsView.swift in Sources */,
 				C5E947D62BB61A8400284BFA /* Selected.swift in Sources */,
 				C5E947C92BB61A8400284BFA /* Deaths.swift in Sources */,
+				C506CF642C08C35B008CEB94 /* LottieView.swift in Sources */,
 				C5E55B6D2BEC100000F56482 /* TaskHandler.swift in Sources */,
 				C5E947DC2BB642A900284BFA /* ItemViewDetails.swift in Sources */,
 				C5DBF8982BB6100B003B5592 /* DailyDoseApp.swift in Sources */,
@@ -334,7 +444,59 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C506CF572C08B4AA008CEB94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C5DBF8932BB6100B003B5592 /* DailyDose */;
+			targetProxy = C506CF562C08B4AA008CEB94 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		C506CF582C08B4AA008CEB94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8Y9TGD2PJD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bunoza.DailyDoseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DailyDose.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DailyDose";
+			};
+			name = Debug;
+		};
+		C506CF592C08B4AA008CEB94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8Y9TGD2PJD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bunoza.DailyDoseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DailyDose.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DailyDose";
+			};
+			name = Release;
+		};
 		C5DBF8A22BB6100D003B5592 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -477,6 +639,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = bunoza.DailyDose;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -506,6 +671,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = bunoza.DailyDose;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -515,6 +683,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C506CF5A2C08B4AA008CEB94 /* Build configuration list for PBXNativeTarget "DailyDoseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C506CF582C08B4AA008CEB94 /* Debug */,
+				C506CF592C08B4AA008CEB94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C5DBF88F2BB6100B003B5592 /* Build configuration list for PBXProject "DailyDose" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -534,6 +711,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C506CF622C08C325008CEB94 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 4.4.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C5A24B1E2C08C44300F166C7 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C506CF622C08C325008CEB94 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C5DBF88C2BB6100B003B5592 /* Project object */;
 }

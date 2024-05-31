@@ -1,11 +1,14 @@
 import Foundation
 import SwiftData
+import SwiftUI
 
 @MainActor
 final class MainViewModel: ObservableObject {
+    @ObservedObject var appState = AppState()
+
     @Published var isLoading = false
-    @Published var language: SupportedLanguage = .english
     @Published var items: [ItemRowModel] = []
+    @Published var error: Error?
 
     private let modelContext: ModelContext
     private let taskHandler = TaskHandler()
@@ -23,18 +26,14 @@ final class MainViewModel: ObservableObject {
         return true
     }
 
-    init(
-        modelContext: ModelContext,
-        language: SupportedLanguage = .english
-    ) {
+    init(modelContext: ModelContext) {
         self.modelContext = modelContext
-        self.language = language
     }
 
     func onAppear() async {
 //        await fetchCache()
 //        if items.isEmpty || !dataIsFromToday {
-        await fetch(in: language)
+        await fetch(in: appState.language)
 //        }
     }
 
@@ -48,7 +47,7 @@ final class MainViewModel: ObservableObject {
             guard let self else {
                 return
             }
-            await fetch(manual: true, in: language)
+            await fetch(manual: true, in: appState.language)
         }
     }
 
@@ -69,6 +68,7 @@ final class MainViewModel: ObservableObject {
                     }
                 }
             } catch {
+                self.error = error
                 print(String(describing: error))
             }
         }
@@ -85,6 +85,7 @@ final class MainViewModel: ObservableObject {
                 let descriptor = FetchDescriptor<ItemRowModel>(sortBy: [SortDescriptor(\.year)])
                 items = try modelContext.fetch(descriptor)
             } catch {
+                self.error = error
                 print(String(describing: error))
             }
         }

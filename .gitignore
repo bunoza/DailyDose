@@ -5,6 +5,7 @@
 ## All of Xcode
 build/
 DerivedData/
+*.plist
 
 ## Various settings
 *.pbxuser

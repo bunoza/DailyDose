@@ -3,6 +3,8 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject private var viewModel: MainViewModel
+    @ObservedObject private var appState = AppState()
+
     @State private var showSettingsSheet = false
     @State private var scrollIndex: Int = 0
 
@@ -11,7 +13,7 @@ struct MainView: View {
     init(
         modelContext: ModelContext
     ) {
-        let viewModel = MainViewModel(modelContext: modelContext, language: .english)
+        let viewModel = MainViewModel(modelContext: modelContext)
         _viewModel = .init(wrappedValue: viewModel)
     }
 
@@ -20,27 +22,23 @@ struct MainView: View {
             VStack {
                 if viewModel.isLoading {
                     ProgressView("Loading")
+                } else if let _ = viewModel.error {
+                    ErrorView {
+                        viewModel.refreshData()
+                        viewModel.error = nil
+                    }
                 } else {
                     ScrollableVerticalList(items: viewModel.items, years: viewModel.years)
                 }
             }
-            .onChange(of: viewModel.language) { _, _ in
+            .onChange(of: appState.language) { _, _ in
                 showSettingsSheet = false
                 viewModel.refreshData()
             }
             .sheet(isPresented: $showSettingsSheet) {
-                Section {
-                    Picker(selection: $viewModel.language) {
-                        ForEach(SupportedLanguage.allCases, id: \.rawValue) { language in
-                            Text(language.description)
-                                .tag(language)
-                        }
-                    } label: {
-                        Text("Source language:")
-                    }
-                    .pickerStyle(.automatic)
-                }
-                .presentationDetents([.medium])
+                SettingsView()
+                    .presentationDetents([.medium])
+                    .interactiveDismissDisabled()
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
